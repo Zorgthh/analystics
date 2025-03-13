@@ -9,7 +9,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -39,7 +39,7 @@ function Login() {
     }
   };
 
-  // Update button disabled states
+  
   return (
     <Container component="main" maxWidth="xs">
       <Paper elevation={3} sx={{ p: 4, mt: 8 }}>

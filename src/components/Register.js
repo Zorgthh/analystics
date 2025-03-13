@@ -10,7 +10,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Renamed to avoid conflicts
+  const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -45,7 +45,7 @@ function Register() {
     }
   };
 
-  // Update the button disabled props
+ 
   return (
     <Container component="main" maxWidth="xs">
       <Paper elevation={3} sx={{ p: 4, mt: 8 }}>

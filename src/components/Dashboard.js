@@ -20,7 +20,6 @@ import {
   Legend,
 } from 'chart.js';
 
-// Fix the ChartJS registration
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -28,7 +27,7 @@ ChartJS.register(
   LineElement,
   BarElement,
   Title,
-  ChartTooltip,  // Changed from Tooltip to ChartTooltip
+  ChartTooltip,
   Legend
 );
 
@@ -48,8 +47,7 @@ function Dashboard() {
       wind_speed: 12
     },
     { date: '2023-01-02', temperature: 23.1, humidity: 68, energy_consumption: 295.2 },
-    { date: '2023-01-03', temperature: 21.8, humidity: 70, energy_consumption: 310.7 },
-    // Add more sample data as needed
+    { date: '2023-01-03', temperature: 21.8, humidity: 70, energy_consumption: 310.7 }
   ]);
 
   const fetchData = async () => {
@@ -91,7 +89,6 @@ function Dashboard() {
     }
   }, [showRealTime]);
 
-  // Calculate statistics
   const getStats = () => {
     const temps = data.map(d => d.temperature).filter(temp => temp !== undefined);
     const humidity = data.map(d => d.humidity).filter(hum => hum !== undefined);
@@ -109,7 +106,6 @@ function Dashboard() {
     };
   };
 
-  // Quick stats cards
   const QuickStatCard = ({ title, value, trend, unit }) => (
     <Card sx={{ height: '100%' }}>
       <CardContent>
@@ -129,7 +125,6 @@ function Dashboard() {
     </Card>
   );
 
-  // Enhanced chart configurations
   const lineChartData = {
     labels: data.map(d => d.date),
     datasets: [
@@ -178,7 +173,6 @@ function Dashboard() {
     <Container maxWidth="xl">
       <Box sx={{ my: 4 }}>
         <Grid container spacing={3}>
-          {/* Header */}
           <Grid item xs={12}>
             <Paper sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Box>
@@ -197,7 +191,6 @@ function Dashboard() {
             </Paper>
           </Grid>
 
-          {/* Controls */}
           <Grid item xs={12}>
             <Paper sx={{ p: 2 }}>
               <Grid container spacing={2} alignItems="center">
@@ -224,7 +217,6 @@ function Dashboard() {
                     <MenuItem value="energy">Energy</MenuItem>
                   </Select>
                 </Grid>
-                {/* Update the Tooltip usage in the JSX */}
                 <Grid item>
                   <MuiTooltip title="Refresh Data">
                     <IconButton onClick={fetchData}>
@@ -236,7 +228,6 @@ function Dashboard() {
             </Paper>
           </Grid>
 
-          {/* Quick Stats */}
           <Grid item xs={12} md={3}>
             <QuickStatCard 
               title="Average Temperature" 
@@ -253,9 +244,7 @@ function Dashboard() {
               unit="%"
             />
           </Grid>
-          {/* Add more quick stat cards */}
 
-          {/* Charts */}
           <Grid item xs={12} md={8}>
             <Paper sx={{ p: 2 }}>
               <Typography variant="h6" gutterBottom>Temperature and Humidity Trends</Typography>
